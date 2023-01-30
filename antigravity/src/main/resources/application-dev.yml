@@ -1,0 +1,26 @@
+# Database Settings
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/fittingnote?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: sa
+    password: sa
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    jackson:
+      property-naming-strategy: SNAKE_CASE
+
+  logging:
+    level:
+      org:
+        springframework.web: debug
+  sql:
+    init:
+      schema-locations: classpath*:/${database}/schema.sql
+      data-locations: classpath*:/${database}/data.sql
+      platform: h2
